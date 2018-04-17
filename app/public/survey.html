@@ -164,8 +164,8 @@
                 q.push($form.find(`input[name='q${i}']:checked`).val());
             }
             var newFriend = { "name": name, "photo": photo, "scores": q };
-            console.log(newFriend);
             $.post("/api/friends", newFriend).then(function (data) {
+                console.log(data);
                 $("#name").text(data.name);
                 $("img").attr("src", data.photo);
                 $("#myModal").modal("show");

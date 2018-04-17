@@ -8,8 +8,8 @@ var bodyParser = require("body-parser");
 apiRoutes = {
     getRoute: function (app) {
         app.get("/api/friends", function (req, res) {
-            // return res.json(array);
-            getFriends(function(data) {res.json(data)});
+            return res.json(array);
+            // getFriends(function(data) {res.json(data)});
         });
     },
     postRoute: function (app) {
@@ -17,13 +17,14 @@ apiRoutes = {
             var friend = req.body;
             var name = req.body.name;
             var scores = req.body.scores;
-            for(var i = 0; i < scores.length; i++) {
+            for (var i = 0; i < scores.length; i++) {
                 scores[i] = parseInt(scores[i]);
             }
             console.log(friend);
-            addFriend(friend, function (data) { bestMatch(name, function (data) { res.json(data); }); });
-            // array.push(friend);
-            // res.json(friend);
+            // addFriend(friend, function (data) { bestMatch(name, function (data) { res.json(data); }); });
+            array.push(friend);
+
+            return res.json(bestMatch(name));
         });
     }
 };
