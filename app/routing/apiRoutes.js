@@ -15,9 +15,10 @@ apiRoutes = {
     postRoute: function(app) {
         app.post("/api/friends", urlencodedParser, function(req, res) {
             var name = req.body["name"];
+            var photo = req.body["photo"];
             var arr = [];
             for(property in req.body) {
-                if(property !== "name") arr.push(parseInt(req.body[property]));
+                if(property !== "name" && property !== "photo") arr.push(parseInt(req.body[property]));
             }
             addFriend({"name": name, "scores": arr}, function(data) {bestMatch(name, function(data, diff) {res.send(data["name"] + " " + diff);});});
         });

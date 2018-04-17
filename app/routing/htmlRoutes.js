@@ -8,7 +8,7 @@ var htmlRoutes = {
         });
     },
     defaultRoute: function(app) {
-        app.get(function(req, res) {
+        app.get("/", function(req, res) {
             var pathName = "/public/home.html";
             res.sendFile(pathName, {root: __dirname.replace("routing", "")});
         })
