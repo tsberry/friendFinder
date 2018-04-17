@@ -13,13 +13,13 @@ apiRoutes = {
         });
     },
     postRoute: function(app) {
-        app.post("/api/friends/submit", urlencodedParser, function(req, res) {
+        app.post("/api/friends", urlencodedParser, function(req, res) {
             var name = req.body["name"];
             var arr = [];
             for(property in req.body) {
                 if(property !== "name") arr.push(parseInt(req.body[property]));
             }
-            addFriend({"name": name, "scores": arr}, function(data) {bestMatch(name, function(data) {res.send(data);});});
+            addFriend({"name": name, "scores": arr}, function(data) {bestMatch(name, function(data, diff) {res.send(data["name"] + " " + diff);});});
         });
     }
 };

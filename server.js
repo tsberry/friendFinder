@@ -11,10 +11,10 @@ var postRoute = apiRoutes.postRoute;
 var app = express();
 var PORT = 7000;
 
-defaultRoute(app);
 surveyRoute(app);
 getRoute(app);
 postRoute(app);
+defaultRoute(app);
 
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
