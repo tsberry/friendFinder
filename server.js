@@ -11,6 +11,9 @@ var postRoute = apiRoutes.postRoute;
 var app = express();
 var PORT = 7000;
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 surveyRoute(app);
 getRoute(app);
 postRoute(app);

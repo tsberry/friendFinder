@@ -12,7 +12,7 @@
         <p>Choose a number between 1 and 5 for each question based on how much you agree with each (1 is least, 5 is most).</p>
     </div>
     <div class="container">
-        <form action="/api/friends" method="POST">
+        <form id="survey">
             <div class="form-group">
                 <input class="form-control" type="text" name="name" placeholder="Name">
             </div>
@@ -117,12 +117,53 @@
                 <input type="radio" name="q10" value="4">4
                 <input type="radio" name="q10" value="5">5
             </div>
-
-
             <br>
-            <input class="btn btn-default btn-primary" type="submit" value="Submit Form">
+            <input id="submit" class="btn btn-default btn-primary" type="submit" value="Submit Form">
         </form>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+
+    <!--<script type="text/x-handlebars-template">
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Your match</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Name: {name}</p>
+                        <p>Photo: <img src="{image}" height="400px" width="400px"></p>
+                                </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+    </script> -->
+<script>
+    $("#survey").submit(function(event) {
+        event.preventDefault();
+        var $form = $(this);
+        var name = $form.find("input[name='name']").val();
+        var photo = $form.find("input[name='photo']").val();
+        var q = [];
+        for(var i = 1; i <= 10; i++) {
+            q.push(parseInt($form.find(`input[name='q${i}']:checked`).val()));
+        }
+        var newFriend = {"name": name, "photo": photo, "scores": q};
+        console.log(newFriend);
+        $.post("/api/friends", newFriend).then(function(data) {
+            console.log(data);
+        });
+    });
+</script>
 </body>
 
 </html>
