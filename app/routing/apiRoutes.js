@@ -1,6 +1,9 @@
 var friends = require("../data/friends.js");
 var getFriends = friends.getFriends;
 var addFriend = friends.addFriend;
+var bodyParser = require("body-parser");
+
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 apiRoutes = {
     getRoute: function(app) {
@@ -9,8 +12,13 @@ apiRoutes = {
         });
     },
     postRoute: function(app) {
-        app.post("/api/friends/submit", function(req, res) {
-            addFriend({"name" : "Thomas3"}, function(data) {res.send(data);});
+        app.post("/api/friends/submit", urlencodedParser, function(req, res) {
+            var name = req.body["name"];
+            var arr = [];
+            for(property in req.body) {
+                if(property !== "name") arr.push(parseInt(req.body[property]));
+            }
+            addFriend({"name": name, "scores": arr}, function(data) {res.send(data);});
         });
     }
 };
