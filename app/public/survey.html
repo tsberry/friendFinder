@@ -121,7 +121,7 @@
             <input id="submit" class="btn btn-default btn-primary" type="submit" value="Submit Form">
         </form>
     </div>
-    
+
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -135,9 +135,10 @@
                     <p>Name:
                         <span id="name"></span>
                     </p>
-                    <p>Photo:
-                        <img src="" height="400px" width="400px">
-                    </p>
+                    <p>Photo:</p>
+                    <div>
+                        <img class="img-responsive" src="">
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -150,6 +151,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+
 
     <script>
         $("#survey").submit(function (event) {
