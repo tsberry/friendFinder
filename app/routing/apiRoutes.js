@@ -16,6 +16,10 @@ apiRoutes = {
         app.post("/api/friends", function (req, res) {
             var friend = req.body;
             var name = req.body.name;
+            var scores = req.body.scores;
+            for(var i = 0; i < scores.length; i++) {
+                scores[i] = parseInt(scores[i]);
+            }
             console.log(friend);
             addFriend(friend, function (data) { bestMatch(name, function (data) { res.json(data); }); });
             // array.push(friend);
