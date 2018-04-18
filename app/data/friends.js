@@ -6,12 +6,32 @@ var friends = [
     {
         "name": "Daenerys Targaryen",
         "photo": "https://cdn4.techly.com.au/wp-content/uploads/2017/08/danytargaryen-799x423.jpg",
-        "scores": [5, 1, 3, 1, 5, 1, 5, 5, 5, 3]
+        "scores": [
+            5, 
+            1, 
+            3, 
+            1, 
+            5, 
+            1, 
+            5, 
+            5, 
+            5, 
+            3]
     },
     {
         "name": "Jon Snow",
         "photo": "https://vignette.wikia.nocookie.net/gameofthrones/images/1/17/Jon-Snow-Kit-Harington_510.jpeg",
-        "scores": [3, 3, 5, 1, 5, 1, 5, 5, 5, 5]
+        "scores": [
+            3,
+            3,
+            5,
+            1,
+            5,
+            1,
+            5,
+            5,
+            5,
+            5]
     },
     {
         "name": "Ned Stark",
@@ -28,7 +48,24 @@ var friends = [
             5,
             5
         ]
-    }];
+    },
+    {
+        "name": "Cersei Lannister",
+        "photo": "https://geekandsundry.com/wp-content/uploads/2016/02/Cersei-Lannister-game-of-thrones-33804391-1024-576.jpg",
+        "scores": [
+            1,
+            5,
+            1,
+            1,
+            1,
+            5,
+            1,
+            5,
+            1,
+            1
+        ]
+    }
+];
 
 function bestMatch(name) {
     var scores;
