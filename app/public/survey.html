@@ -7,16 +7,18 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <h1>Survey</h1>
-        <p>Choose a number between 1 and 5 for each question based on how much you agree with each (1 is least, 5 is most).</p>
-    </div>
     <div class="container">
+        <div class="jumbotron text-center">
+            <h1>Survey</h1>
+            <p>Choose a number between 1 and 5 for each question based on how much you agree with each (1 is least, 5 is most).</p>
+        </div>
         <form id="survey">
             <div class="form-group">
+                <label for="name">Your Name:</label>
                 <input class="form-control" type="text" name="name" placeholder="Name">
             </div>
             <div class="form-group">
+                <label for="name">Your Photo (URL):</label>
                 <input class="form-control" type="text" name="photo" placeholder="Photo URL">
             </div>
             <div class="form-group">
@@ -120,9 +122,15 @@
             <br>
             <input id="submit" class="btn btn-default btn-primary" type="submit" value="Submit Form">
             <button id="modal-button" type="button" class="btn btn-primary btn-default" style="display:none" data-toggle="modal" data-target="#myModal">
-                    See Your Match
-                  </button>
+                See Your Match
+            </button>
         </form>
+        <footer>
+            <p>
+                <a href="/api/friends">API Friends List</a> |
+                <a href="https://github.com/tsberry/friendFinder">GitHub Repo</a>
+            </p>
+        </footer>
     </div>
 
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
