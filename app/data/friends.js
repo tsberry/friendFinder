@@ -1,7 +1,5 @@
 var fs = require("fs");
 
-var path = "./app/data/friends.json";
-
 var friends = [
     {
         "name": "Daenerys Targaryen",
